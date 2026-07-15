@@ -1,6 +1,20 @@
 :root {
   --brand-color: #e4bf73;
 }
+
+@keyframes highlight-flash {
+  0%   { color: inherit; }
+  25%  { color: var(--brand-color); }
+  100% { color: inherit; }
+}
+
+.contact-highlight {
+  color: inherit;
+}
+
+.contact-highlight.flash {
+  animation: highlight-flash 2.5s ease-in-out forwards;
+}
 html,
 body {
   margin: 0;
@@ -8,6 +22,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background: #fff;
   color: #1f2937;
+  scroll-behavior: smooth;
 }
 
 .hero-section {
@@ -20,6 +35,7 @@ body {
   width: 150px;
   height: auto;
   align-self: flex-start;
+  z-index: 20;
 }
 
 .logo-bottom {
@@ -66,6 +82,27 @@ body {
   color: #111827;
   font-weight: 600;
   font-size: 1.15rem;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--brand-color);
+  transition: width 0.25s ease;
+}
+
+.nav-list a:hover {
+  color: #b8943b;
+}
+
+.nav-list a:hover::after {
+  width: 100%;
 }
 
 .hero-title {
@@ -93,6 +130,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch;
   gap: 24px;
   padding: 24px 16px;
 }
@@ -100,6 +138,7 @@ body {
 .brand-box {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: min(100%, 420px);
   margin: 0;
   padding: 16px;
@@ -140,22 +179,33 @@ body {
 .brand-photo {
   display: block;
   width: 100%;
-  height: 45vh;
+  aspect-ratio: 4 / 5;
+  height: auto;
   object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.brand-box:hover .brand-photo {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(17, 24, 39, 0.18);
 }
 
 .brand-logo {
   display: block;
   width: 40%;
-  height: auto;
+  height: 60px;
+  object-fit: contain;
   align-self: center;
 }
 
 .brand-description {
   font-size: medium;
   line-height: 1.4;
-  text-align: left;
-  max-width: 80%;
+  text-align: center;
+  max-width: 90%;
   align-self: center;
 }
 
@@ -165,6 +215,7 @@ body {
   justify-content: center;
   width: 180px;
   min-height: 42px;
+  margin-top: auto;
   padding: 0 14px;
   border: 2px solid var(--brand-color);
   text-decoration: none;
@@ -174,6 +225,12 @@ body {
   align-self: center;
   text-align: center;
   box-sizing: border-box;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.brand-link:hover {
+  background-color: var(--brand-color);
+  color: #fff;
 }
 
 .b2b-section {
@@ -183,7 +240,7 @@ body {
   gap: 18px;
   width: 100%;
   padding: 18px 16px;
-  background-color: rgba(255, 255, 255);
+  background-color: #fff;
 }
 
 .b2b-meta {
@@ -206,6 +263,14 @@ body {
   text-align: left;
 }
 
+.sub-title {
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  align-self: center;
+}
+
 .b2b-description {
   font-size: 1rem;
   line-height: 1.75;
@@ -213,7 +278,6 @@ body {
   max-width: 34rem;
   margin: 0;
   text-align: left;
-  overflow-wrap: break-word;
 }
 
 .b2b-icons {
@@ -237,10 +301,57 @@ body {
   display: block;
 }
 
-@media (max-width: 860px) {
-  .b2b-description {
-    max-width: 100%;
-  }
+.vyhody {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 64rem;
+  margin: 32px auto 64px;
+  padding: 0 20px;
+}
+
+.vyhoda-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1 1 260px;
+  max-width: 300px;
+  gap: 16px;
+}
+
+.svg-content {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vyhoda-card:hover .svg-content {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(17, 24, 39, 0.18);
+}
+
+.vyhoda-card .sub-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  align-self: center;
+}
+
+.vyhoda-card .b2b-description {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 28rem;
+  text-align: center;
 }
 
 .b2b-icon-card {
@@ -275,19 +386,19 @@ body {
 }
 
 .footer {
-  background-color: rgba(228, 191, 115, 0.8);
-  padding: 16px 0;
+  background-color: rgba(228, 191, 115, 0.4);
+  padding: 12px 0;
   width: 100%;
-  max-height: fit-content;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 7px;
 }
 
 .footer > div {
-  padding: 0 16px;
+  padding: 0 12px;
 }
 
 .footer > div:not(:first-child) {
@@ -297,8 +408,9 @@ body {
 .footer-list {
   list-style: none;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.55;
   padding: 0;
+  font-size: 0.95rem;
 }
 
 .footer-list li {
@@ -310,24 +422,42 @@ body {
   height: 25px;
   width: auto;
   display: block;
+  border-left: 1px solid rgba(0, 0, 0, 0.16);
+  padding-left: 14px;
+  transition: opacity 0.2s;
+}
+
+.footerpic {
+  height: auto;
+  width: 200px;
+  display: block;
+  padding-left: 14px;
+  object-fit: contain;
+}
+
+.ig-logo:hover {
+  opacity: 0.7;
 }
 
 .contact-icon {
-  height: 15px;
+  height: 18px;
   width: auto;
   display: block;
 }
 .location-icon {
-  height: 20px;
+  height: 22px;
   width: auto;
   display: block;
 }
 
 .copyright {
   font-size: 0.9rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-basis: 100%;
+  width: 100%;
+  text-align: center;
+  padding-top: 8px;
+  margin-top: 0;
+  color: #4b5563;
 }
 
 .TegaTrade-Logo-mobile {
@@ -350,11 +480,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
   }
-}
 
-@media (max-width: 860px) {
   .b2b-section {
     flex-direction: column;
     align-items: center;
@@ -365,14 +493,20 @@ body {
 
   .logo-bottom {
     display: none;
-    margin-bottom: 0;
   }
 
   .ig-logo {
     height: 20px;
     width: auto;
     display: block;
-    margin-top: 0px;
+    border-left: none;
+    padding-left: 0;
+    padding-top: 8px;
+    margin-top: 0;
+  }
+
+  .footerpic {
+    display: none;
   }
 
   .footer > div:not(:first-child) {
@@ -392,13 +526,15 @@ body {
   .b2b-meta {
     width: 100%;
     max-width: 34rem;
-    align-items: flex-start;
-    margin-left: 20px;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
     padding: 0 10px;
   }
 
   .b2b-header {
     flex-direction: column;
+    align-items: center;
   }
 
   .b2b-description {
@@ -407,21 +543,29 @@ body {
     font-size: 0.95rem;
     margin: 0;
     padding: 0;
-    text-align: left;
+    text-align: center;
   }
 
   .b2b-title {
-    align-self: flex-start;
+    text-align: center;
+    align-self: center;
+  }
+
+  .b2b-icons {
+    justify-content: center;
+    gap: 12px;
   }
 
   .b2b-icon-card {
     min-width: auto;
-    width: 50%;
-    flex-direction: row;
-    justify-content: flex-start;
-    border-radius: 18px;
-    margin-left: 25px;
-    padding: 16px 12px;
+    width: calc(50% - 14px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 12px;
+    margin-left: 0;
+    padding: 14px 10px;
     box-shadow: inset 0 0 0 1px rgba(17, 24, 39, 0.06);
     background-color: rgba(255, 255, 255, 0.6);
   }
@@ -432,6 +576,17 @@ body {
 
   .b2b-divider {
     display: none;
+  }
+
+  .vyhody {
+    gap: 20px;
+    margin-top: 24px;
+    padding: 0 16px;
+  }
+
+  .vyhoda-card {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }
 
@@ -459,9 +614,5 @@ body {
 @media (max-width: 620px) {
   .b2b-section {
     padding: 18px 14px;
-  }
-
-  .b2b-icons {
-    grid-template-columns: 1fr;
   }
 }

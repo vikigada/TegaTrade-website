@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>PompPom</title>
+  </head>
+  <body>
+    <header class="hero-section">
+      <a href="index.html"><img src="TegaTrade_logo-removebg-preview.png" class="logo-top" /></a>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><a href="#">O nás</a></li>
+          <li><a href="#dalsi-znacky">Značky</a></li>
+          <li><a href="index.html#b2b">B2B spolupráce</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="hero-content">
+        <h1 class="hero-title">POMPOM</h1>
+        <p class="hero-description">
+          Kvalitní dětská obuv v nadčasovém skandinávském designu. Vytvořená s
+          láskou k malým nožkám, pro pohodlné objevování světa.
+        </p>
+      </div>
+      <img src="Hlavn baner.png" alt="Main banner" class="main-banner" />
+    </header>
+    <main>
+      <h2 class="sub-title" style="margin-top: 40px ;">Proč rodiče volí PompPom</h2>
+      <v sekci vyhody nastyluj aby vypadala ta sekce profediv class="vyhody">
+        <div class="vyhoda-card">
+          <h3 class="sub-title">Kvalitní materiály</h3>
+          <img
+            src="https://pompom.dk/cdn/shop/files/HZ5A2348.jpg?v=1769678182&width=1250"
+            alt="premium materials"
+            class="svg-content"
+          />
+          <p class="b2b-description">
+            Prémiová useň a prodyšné textilie šetrné k dětské pokožce. Každý
+            materiál je pečlivě vybírán s ohledem na maximální pohodlí.
+          </p>
+        </div>
+        <div class="vyhoda-card">
+          <h3 class="sub-title">Ergonomický tvar</h3>
+          <img
+            src="https://pompom.dk/cdn/shop/files/HZ5A2666.jpg?v=1769677954&width=750"
+            alt="ergonomic shape"
+            class="svg-content"
+          />
+          <p class="b2b-description">
+            Boty navržené ve spolupráci s odborníky respektují přirozený vývoj
+            dětského chodidla a poskytují správnou oporu.
+          </p>
+        </div>
+        <div class="vyhoda-card">
+          <h3 class="sub-title">Nadčasový design</h3>
+          <img
+            src="https://pompom.dk/cdn/shop/files/HZ5A2415.jpg?v=1769677956&width=750"
+            alt="timeless design"
+            class="svg-content"
+          />
+          <p class="b2b-description">
+            Inspirováno skandinávskou estetikou – čisté linie, jemné barvy a
+            důraz na detail dělají z každého páru stylový doplněk.
+          </p>
+        </div>
+      </div>
+    </main>
+    <h2 class="sub-title" style="margin-top: 60px;" id="dalsi-znacky">Další značky v naší nabídce</h2>
+    <div class="brand-row">
+      <div class="brand-box">
+        <img src="minipop obrazek.png" alt="MiniPop" class="brand-photo" />
+        <img src="minipop_logo-removebg-preview.png" alt="MiniPop logo" class="brand-logo" />
+        <p class="brand-description">
+          Jemné bambusové ponožky pro děti plné měkkosti a hravých barev.
+        </p>
+        <a href="minipop.html" class="brand-link">VÍCE O ZNAČCE</a>
+      </div>
+      <div class="brand-box">
+        <img src="ciciban obrzaek.png" alt="Ciciban" class="brand-photo" />
+        <img src="ciciban_logo-removebg-preview.png" alt="Ciciban logo" class="brand-logo" />
+        <p class="brand-description">
+          Zdravé obouvání od prvních krůčků. Tradiční slovinská značka.
+        </p>
+        <a href="#" class="brand-link">VÍCE O ZNAČCE</a>
+      </div>
+    </div>
+    <footer class="footer" id="kontakt">
+      <a href="index.html"><img src="TegaTrade_logo-removebg-preview.png" class="logo-bottom" /></a>
+      <div>
+        <ul class="footer-list">
+          <li>Oficiální zástupce značek</li>
+          <li>Ciciban, PomPom a Minipop</li>
+          <li>v České republice</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="footer-list bottom-mobiele-line">
+          <li>
+            <img src="phone.png" alt="phone number" class="contact-icon" />
+            <a
+              href="tel:+420607971204"
+              class="contact-highlight"
+              style="text-decoration: none"
+              >+420 607 971 204</a
+            >
+          </li>
+          <li>
+            <img src="email.png" alt="email" class="contact-icon" />
+            <a
+              href="mailto:gajdova@tegatrade.cz"
+              class="contact-highlight"
+              style="text-decoration: none"
+              >gajdova@tegatrade.cz</a
+            >
+          </li>
+          <li>
+            <img src="location.png" alt="location" class="location-icon" />
+            Showroom v Ostravě
+          </li>
+        </ul>
+        <a href="index.html"><img
+          src="TegaTrade_logo-removebg-preview.png"
+          alt="TegaTrade Logo mobile"
+          class="TegaTrade-Logo-mobile"
+        /></a>
+      </div>
+      <img src="ig-logo.png" alt="ig-logo" class="ig-logo" />
+      <span class="copyright">© 2026 TegaTrade. Všechna práva vyhrazena.</span>
+    </footer>
+    <script>
+      document.querySelectorAll('a[href="#kontakt"]').forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          var target = document.querySelector("#kontakt");
+          target.scrollIntoView({ behavior: "smooth" });
+          setTimeout(function () {
+            var items = target.querySelectorAll(".contact-highlight");
+            items.forEach(function (el) {
+              el.classList.remove("flash");
+              void el.offsetWidth;
+              el.classList.add("flash");
+            });
+          }, 700);
+        });
+      });
+    </script>
+  </body>
+</html>
