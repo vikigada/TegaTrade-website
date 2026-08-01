@@ -3,9 +3,15 @@
 }
 
 @keyframes highlight-flash {
-  0%   { color: inherit; }
-  25%  { color: var(--brand-color); }
-  100% { color: inherit; }
+  0% {
+    color: inherit;
+  }
+  25% {
+    color: var(--brand-color);
+  }
+  100% {
+    color: inherit;
+  }
 }
 
 .contact-highlight {
@@ -86,6 +92,17 @@ body {
   transition: color 0.2s;
 }
 
+.nav-home {
+  display: none;
+}
+
+.nav-list svg {
+  width: 18px;
+  height: 18px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .nav-list a::after {
   content: "";
   position: absolute;
@@ -109,12 +126,14 @@ body {
   font-size: 3.85rem;
   line-height: 1.1;
   margin: 0;
+  color: #000;
 }
 
 .hero-description {
   font-size: 1.7rem;
   line-height: 1.4;
   max-width: 60%;
+  color: #000;
 }
 
 .hero-content {
@@ -123,6 +142,14 @@ body {
   left: 3%;
   z-index: 5;
   max-width: 42rem;
+}
+
+.hero-content-glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  padding: 22px 28px;
+  border-radius: 8px;
+  border-left: 4px solid var(--brand-color);
 }
 
 .brand-row {
@@ -156,23 +183,42 @@ body {
     width: 100%;
   }
 
+  .main-banner {
+    max-height: 50vh;
+  }
+
   .nav-list a {
     font-size: 0.75rem;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.85);
+  }
+
+  .nav-home {
+    display: flex;
   }
 
   .hero-title {
     font-size: 1.6rem;
     margin-top: 10px;
+    color: #000;
   }
 
   .hero-description {
     font-size: 0.85rem;
     max-width: 80%;
+    color: #000;
   }
 
-  .hero-content {
-    max-width: 90%;
-    left: 5%;
+  .hero-content-glass {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    max-width: 100%;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 0;
+    padding: 20px 18px;
+    border-left: 4px solid var(--brand-color);
   }
 }
 
@@ -185,7 +231,9 @@ body {
   object-position: center;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(17, 24, 39, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .brand-box:hover .brand-photo {
@@ -225,7 +273,9 @@ body {
   align-self: center;
   text-align: center;
   box-sizing: border-box;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .brand-link:hover {
@@ -331,7 +381,9 @@ body {
   object-position: center;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(17, 24, 39, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .vyhoda-card:hover .svg-content {
@@ -358,17 +410,33 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 10px 8px;
+  gap: 12px;
+  padding: 14px 12px;
   min-width: 100px;
   text-align: center;
   color: #111827;
 }
 
 .b2b-icon-card svg {
-  width: 44px;
-  height: 44px;
-  color: #1f2937;
+  width: 48px;
+  height: 48px;
+  color: var(--brand-color);
+}
+
+.b2b-icon-card .icon-circle {
+  width: 60px;
+  height: 60px;
+  background: rgba(228, 191, 115, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.b2b-icon-card .icon-circle svg {
+  width: 30px;
+  height: 30px;
 }
 
 .b2b-icon-card span {
@@ -591,28 +659,177 @@ body {
 }
 
 @media (max-width: 480px) {
+  .main-banner {
+    max-height: 45vh;
+  }
+
   .nav-list a {
     font-size: 0.65rem;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.85);
   }
 
   .hero-title {
     font-size: 1.3rem;
+    color: #000;
   }
 
   .hero-description {
     font-size: 0.75rem;
     max-width: 100%;
+    color: #000;
   }
 
-  .hero-content {
-    top: 15%;
-    left: 5%;
-    max-width: 90%;
+  .hero-content-glass {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    max-width: 100%;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 0;
+    padding: 14px 14px;
+    border-left: 4px solid var(--brand-color);
   }
 }
 
 @media (max-width: 620px) {
   .b2b-section {
     padding: 18px 14px;
+  }
+}
+
+.contact-intro {
+  text-align: center;
+  max-width: 48rem;
+  margin: 48px auto 0;
+  padding: 0 20px;
+}
+
+.contact-intro p {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.6;
+  color: #1f2937;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.contact-intro p::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--brand-color);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  max-width: 56rem;
+  margin: 48px auto 64px;
+  padding: 0 20px;
+}
+
+.contact-card {
+  flex: 1 1 300px;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 28px 28px;
+  box-shadow: 0 4px 24px rgba(17, 24, 39, 0.08);
+  border-top: 4px solid var(--brand-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(17, 24, 39, 0.14);
+}
+
+.contact-card-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(228, 191, 115, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-color);
+}
+
+.contact-card-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.contact-card-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  text-align: center;
+}
+
+.contact-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.contact-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
+.contact-line svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--brand-color);
+}
+
+.contact-line a {
+  color: #374151;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-line a:hover {
+  color: var(--brand-color);
+}
+
+@media (max-width: 768px) {
+  .contact-cards {
+    gap: 24px;
+    margin: 32px auto 48px;
+    padding: 0 16px;
+  }
+
+  .contact-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 24px 20px 22px;
+  }
+
+  .contact-intro {
+    margin: 36px auto 0;
+    padding: 0 16px;
   }
 }
